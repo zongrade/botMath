@@ -74,13 +74,9 @@ func main() {
 		bot.Send(msg)
 
 		// Генерируем аудиофайл из текста
-		audioFilePath, err := textToSpeech(result)
-		if err != nil {
-			log.Printf("Ошибка при создании аудиофайла: %v", err)
-			bot.Send(tgbotapi.NewMessage(update.Message.Chat.ID, "Сообщение сломалось"))
-		}
+		textToSpeech(result)
 
-		audioFilePath = "./output.mp3"
+		audioFilePath := "./output.mp3"
 		audioFile, err := os.Open(audioFilePath)
 		if err != nil {
 			log.Printf("Ошибка при взятии файла: %v", err)

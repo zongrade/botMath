@@ -41,8 +41,9 @@ if __name__ == "__main__":
         # Сохраняем текст в аудиофайл
         audio_file = 'output.mp3'
         text_to_speech(text, audio_file)
-        
-        print(f"Текст под заголовком '{heading_text}':\n{text}")
+
+        print(f"Текст под заголовком '{heading_text}':\n{text.encode('windows-1251', 'ignore').decode('windows-1251')}")
+
         print(f"Аудиофайл сохранен как {audio_file}")
 
     except ValueError as e:
